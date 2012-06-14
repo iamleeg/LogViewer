@@ -13,7 +13,23 @@
 		98EACA9E1589F44A0078D06C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 98EACA9C1589F44A0078D06C /* Credits.rtf */; };
 		98EACAA11589F44A0078D06C /* FZAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAA01589F44A0078D06C /* FZAAppDelegate.m */; };
 		98EACAA41589F44B0078D06C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98EACAA21589F44B0078D06C /* MainMenu.xib */; };
+		98EACAB11589F48E0078D06C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EACAB01589F48E0078D06C /* Foundation.framework */; };
+		98EACAB41589F48E0078D06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAB31589F48E0078D06C /* main.m */; };
+		98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAB71589F48E0078D06C /* logcat.1 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98EACAAC1589F48E0078D06C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		98EACA891589F44A0078D06C /* LogViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,14 +37,19 @@
 		98EACA901589F44A0078D06C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		98EACA911589F44A0078D06C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		98EACA921589F44A0078D06C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		98EACA951589F44A0078D06C /* LogViewer-Info.plist */ = {isa = PBXFileReference; path = "LogViewer-Info.plist"; sourceTree = "<group>"; };
+		98EACA951589F44A0078D06C /* LogViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogViewer-Info.plist"; sourceTree = "<group>"; };
 		98EACA971589F44A0078D06C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		98EACA991589F44A0078D06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		98EACA9B1589F44A0078D06C /* LogViewer-Prefix.pch */ = {isa = PBXFileReference; path = "LogViewer-Prefix.pch"; sourceTree = "<group>"; };
+		98EACA9B1589F44A0078D06C /* LogViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogViewer-Prefix.pch"; sourceTree = "<group>"; };
 		98EACA9D1589F44A0078D06C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		98EACA9F1589F44A0078D06C /* FZAAppDelegate.h */ = {isa = PBXFileReference; path = FZAAppDelegate.h; sourceTree = "<group>"; };
+		98EACA9F1589F44A0078D06C /* FZAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FZAAppDelegate.h; sourceTree = "<group>"; };
 		98EACAA01589F44A0078D06C /* FZAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FZAAppDelegate.m; sourceTree = "<group>"; };
 		98EACAA31589F44B0078D06C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		98EACAAE1589F48E0078D06C /* logcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = logcat; sourceTree = BUILT_PRODUCTS_DIR; };
+		98EACAB01589F48E0078D06C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		98EACAB31589F48E0078D06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		98EACAB61589F48E0078D06C /* logcat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "logcat-Prefix.pch"; sourceTree = "<group>"; };
+		98EACAB71589F48E0078D06C /* logcat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = logcat.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +61,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98EACAAB1589F48E0078D06C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98EACAB11589F48E0078D06C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -47,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				98EACA931589F44A0078D06C /* LogViewer */,
+				98EACAB21589F48E0078D06C /* logcat */,
 				98EACA8C1589F44A0078D06C /* Frameworks */,
 				98EACA8A1589F44A0078D06C /* Products */,
 			);
@@ -56,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				98EACA891589F44A0078D06C /* LogViewer.app */,
+				98EACAAE1589F48E0078D06C /* logcat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				98EACA8D1589F44A0078D06C /* Cocoa.framework */,
+				98EACAB01589F48E0078D06C /* Foundation.framework */,
 				98EACA8F1589F44A0078D06C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -102,6 +134,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		98EACAB21589F48E0078D06C /* logcat */ = {
+			isa = PBXGroup;
+			children = (
+				98EACAB31589F48E0078D06C /* main.m */,
+				98EACAB71589F48E0078D06C /* logcat.1 */,
+				98EACAB51589F48E0078D06C /* Supporting Files */,
+			);
+			path = logcat;
+			sourceTree = "<group>";
+		};
+		98EACAB51589F48E0078D06C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				98EACAB61589F48E0078D06C /* logcat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +171,23 @@
 			productName = LogViewer;
 			productReference = 98EACA891589F44A0078D06C /* LogViewer.app */;
 			productType = "com.apple.product-type.application";
+		};
+		98EACAAD1589F48E0078D06C /* logcat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98EACAB91589F48E0078D06C /* Build configuration list for PBXNativeTarget "logcat" */;
+			buildPhases = (
+				98EACAAA1589F48E0078D06C /* Sources */,
+				98EACAAB1589F48E0078D06C /* Frameworks */,
+				98EACAAC1589F48E0078D06C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = logcat;
+			productName = logcat;
+			productReference = 98EACAAE1589F48E0078D06C /* logcat */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -145,6 +212,7 @@
 			projectRoot = "";
 			targets = (
 				98EACA881589F44A0078D06C /* LogViewer */,
+				98EACAAD1589F48E0078D06C /* logcat */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +237,14 @@
 			files = (
 				98EACA9A1589F44A0078D06C /* main.m in Sources */,
 				98EACAA11589F44A0078D06C /* FZAAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98EACAAA1589F48E0078D06C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98EACAB41589F48E0078D06C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +351,26 @@
 			};
 			name = Release;
 		};
+		98EACABA1589F48E0078D06C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "logcat/logcat-Prefix.pch";
+				INSTALL_OWNER = root;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		98EACABB1589F48E0078D06C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "logcat/logcat-Prefix.pch";
+				INSTALL_OWNER = root;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -292,6 +388,14 @@
 			buildConfigurations = (
 				98EACAA81589F44B0078D06C /* Debug */,
 				98EACAA91589F44B0078D06C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		98EACAB91589F48E0078D06C /* Build configuration list for PBXNativeTarget "logcat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98EACABA1589F48E0078D06C /* Debug */,
+				98EACABB1589F48E0078D06C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
