@@ -8,8 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface FZAAppDelegate : NSObject <NSApplicationDelegate>
+@interface FZAAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource, NSTableViewDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTableView *sourceList;
+@property (assign) IBOutlet NSTextView *logViewer;
+
+- (IBAction)sourceListItemSelected: (id)sender;
 
 @end
