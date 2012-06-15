@@ -50,6 +50,7 @@
 		98EACAB31589F48E0078D06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		98EACAB61589F48E0078D06C /* logcat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "logcat-Prefix.pch"; sourceTree = "<group>"; };
 		98EACAB71589F48E0078D06C /* logcat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = logcat.1; sourceTree = "<group>"; };
+		98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.fuzzyaliens.logcat.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				98EACAB61589F48E0078D06C /* logcat-Prefix.pch */,
+				98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
