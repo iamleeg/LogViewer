@@ -4,14 +4,20 @@
 <dict>
 	<key>Label</key>
 	<string>com.fuzzyaliens.logcat</string>
+	<key>StandardOutPath</key>
+	<string>/var/log/logcat.out.log</string>
+	<key>StandardErrorPath</key>
+	<string>/var/log/logcat.err.log</string>
 	<key>ServiceIPC</key>
 	<true/>
 	<key>Sockets</key>
 	<dict>
 		<key>Listener</key>
 		<dict>
-			<key>SockServiceName</key>
-			<string>1001</string>
+			<key>SockPathName</key>
+			<string>/var/run/logcat.socket</string>
+			<key>SockPathMode</key>
+			<integer>432</integer>
 		</dict>
 	</dict>
 	<key>ProgramArguments</key>
