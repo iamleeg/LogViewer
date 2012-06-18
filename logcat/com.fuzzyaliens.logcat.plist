@@ -20,9 +20,5 @@
 			<integer>432</integer>
 		</dict>
 	</dict>
-	<key>ProgramArguments</key>
-	<array>
-		<string>/usr/local/bin/logcat</string>
-	</array>
 </dict>
 </plist>
