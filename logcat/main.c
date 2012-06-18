@@ -40,7 +40,6 @@ int main(int argc, const char * argv[]) {
     if (accepted_socket == -1) {
         exit_error("couldn't accept the socket connection", errno);
     }
-    //read and check the authorisation services rights
     //read and check the one-byte command
     char command = 0;
     size_t bytes_read = recv(accepted_socket, &command, 1, 0);
