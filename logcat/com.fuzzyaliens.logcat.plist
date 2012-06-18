@@ -17,7 +17,7 @@
 			<key>SockPathName</key>
 			<string>/var/run/logcat.socket</string>
 			<key>SockPathMode</key>
-			<integer>432</integer>
+			<integer>438</integer>
 		</dict>
 	</dict>
 </dict>

@@ -7,10 +7,48 @@
 //
 
 #import "FZAAppDelegate.h"
+#import <Security/Security.h>
+#import <ServiceManagement/ServiceManagement.h>
 #import <sys/socket.h>
 #import <sys/un.h>
 
 @implementation FZAAppDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    CFStringRef jobLabel = CFSTR("com.fuzzyaliens.logcat");
+    CFDictionaryRef logcatJob = SMJobCopyDictionary(kSMDomainSystemLaunchd, jobLabel);
+    if (logcatJob) {
+        // the job's already deployed, so there's nothing to do
+        CFRelease(logcatJob);
+    } else {
+        // gain the right to install the helper
+        AuthorizationItem authItem = { .name = kSMRightBlessPrivilegedHelper,
+            .valueLength = 0,
+            .value = NULL,
+            .flags = kAuthorizationFlagDefaults };
+        AuthorizationRights authRights	= { .count = 1,
+            .items = &authItem };
+        
+        AuthorizationRef authorization = NULL;
+        OSStatus authResult = AuthorizationCreate(&authRights,
+                                              kAuthorizationEmptyEnvironment,
+                                              kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights,
+                                              &authorization);
+        if (authResult != errAuthorizationSuccess) {
+            NSLog(@"couldn't create AuthorizationRef: error %i", authResult);
+        } else {
+            // got authorization, so deploy the helper
+            CFErrorRef error = NULL;
+            BOOL blessResult = SMJobBless(kSMDomainSystemLaunchd, jobLabel, authorization, &error);
+            AuthorizationFree(authorization, kAuthorizationFlagDefaults);
+            if (!blessResult) {
+                CFStringRef errorString = CFErrorCopyDescription(error);
+                NSLog(@"couldn't install privileged helper: %@", (__bridge id)errorString);
+                CFRelease(errorString);
+            }
+        }
+    }
+}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return 2;

@@ -18,6 +18,8 @@
 		98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAB71589F48E0078D06C /* logcat.1 */; };
 		98F064A9158F3BC8000813CB /* com.fuzzyaliens.logcat.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */; };
 		98F064B3158F4A42000813CB /* com.fuzzyaliens.logcat in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAAE1589F48E0078D06C /* com.fuzzyaliens.logcat */; };
+		98F064B5158F4BEF000813CB /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F064B4158F4BEF000813CB /* ServiceManagement.framework */; };
+		98F064B7158F4E3B000813CB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F064B6158F4E3B000813CB /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		98EACAB71589F48E0078D06C /* logcat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = logcat.1; sourceTree = "<group>"; };
 		98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.fuzzyaliens.logcat.plist; sourceTree = "<group>"; };
 		98F064AF158F3F8E000813CB /* logcat-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "logcat-Info.plist"; sourceTree = "<group>"; };
+		98F064B4158F4BEF000813CB /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		98F064B6158F4E3B000813CB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F064B7158F4E3B000813CB /* Security.framework in Frameworks */,
+				98F064B5158F4BEF000813CB /* ServiceManagement.framework in Frameworks */,
 				98EACA8E1589F44A0078D06C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +134,8 @@
 		98EACA8C1589F44A0078D06C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98F064B6158F4E3B000813CB /* Security.framework */,
+				98F064B4158F4BEF000813CB /* ServiceManagement.framework */,
 				98EACA8D1589F44A0078D06C /* Cocoa.framework */,
 				98EACAB01589F48E0078D06C /* Foundation.framework */,
 				98EACA8F1589F44A0078D06C /* Other Frameworks */,
