@@ -13,17 +13,37 @@
 @implementation FZAAppDelegate
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    return @"system.log";
+    switch (row) {
+        case 0:
+            return @"system.log";
+            break;
+        case 1:
+            return @"install.log";
+            break;
+        default:
+            return nil;
+            break;
+    }
 }
 
 - (IBAction)sourceListItemSelected:(id)sender {
     self.logViewer.string = @"";
     //choose the appropriate command to send
-    char command = 's';
+    char command = 0;
+    switch ([sender clickedRow]) {
+        case 0:
+            command = 's';
+            break;
+        case 1:
+            command = 'i';
+            break;
+        default:
+            return;
+    }
     //connect to the remote socket
     int socket_descriptor = socket(PF_LOCAL, SOCK_STREAM, 0);
     if (socket_descriptor == -1) {

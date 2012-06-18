@@ -43,25 +43,15 @@ int main(int argc, const char * argv[]) {
         if (bytes_read != 1) {
             exit_error("couldn't read the command from the socket", errno);
         }
-        char *log_content = malloc(4096);
-        if (log_content == NULL) {
-            exit_error("couldn't allocate memory", errno);
-        }
         //write the reply
+        int log_file = -1;
         switch (command) {
             case 's': {
-                int log_file = open("/var/log/system.log", O_RDONLY);
-                if (log_file == -1) {
-                    exit_error("couldn't open the log file", errno);
-                }
-                size_t file_bytes_read = 0;
-                while ((file_bytes_read = read(log_file, log_content, 4096)) > 0) {
-                    ssize_t socket_bytes_written = write(accepted_socket, log_content, file_bytes_read);
-                    if (socket_bytes_written < file_bytes_read) {
-                        exit_error("couldn't write to socket", errno);
-                    }
-                }
-                close(log_file);
+                log_file = open("/var/log/system.log", O_RDONLY);
+                break;
+            }
+            case 'i': {
+                log_file = open("/var/log/install.log", O_RDONLY);
                 break;
             }
             default: {
@@ -69,6 +59,21 @@ int main(int argc, const char * argv[]) {
                 break;
             }
         }
+        if (log_file == -1) {
+            exit_error("couldn't open the log file", errno);
+        }
+        char *log_content = malloc(4096);
+        if (log_content == NULL) {
+            exit_error("couldn't allocate memory", errno);
+        }
+        size_t file_bytes_read = 0;
+        while ((file_bytes_read = read(log_file, log_content, 4096)) > 0) {
+            ssize_t socket_bytes_written = write(accepted_socket, log_content, file_bytes_read);
+            if (socket_bytes_written < file_bytes_read) {
+                exit_error("couldn't write to socket", errno);
+            }
+        }
+        close(log_file);
         free(log_content);
         //close the connection
         close(accepted_socket);
