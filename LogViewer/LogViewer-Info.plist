@@ -32,5 +32,10 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.fuzzyaliens.logcat</key>
+		<string>identifier &quot;com.fuzzyaliens.logcat&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;3rd Party Mac Developer Application: Graham Lee&quot;</string>
+	</dict>
 </dict>
 </plist>

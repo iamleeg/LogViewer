@@ -17,7 +17,18 @@
 		98EACAB41589F48E0078D06C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAB31589F48E0078D06C /* main.c */; };
 		98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAB71589F48E0078D06C /* logcat.1 */; };
 		98F064A9158F3BC8000813CB /* com.fuzzyaliens.logcat.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */; };
+		98F064B3158F4A42000813CB /* com.fuzzyaliens.logcat in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAAE1589F48E0078D06C /* com.fuzzyaliens.logcat */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98F064B0158F4A2F000813CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98EACA801589F44A0078D06C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98EACAAD1589F48E0078D06C;
+			remoteInfo = logcat;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		98EACAAC1589F48E0078D06C /* CopyFiles */ = {
@@ -40,6 +51,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		98F064B2158F4A33000813CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				98F064B3158F4A42000813CB /* com.fuzzyaliens.logcat in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +77,7 @@
 		98EACA9F1589F44A0078D06C /* FZAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FZAAppDelegate.h; sourceTree = "<group>"; };
 		98EACAA01589F44A0078D06C /* FZAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FZAAppDelegate.m; sourceTree = "<group>"; };
 		98EACAA31589F44B0078D06C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		98EACAAE1589F48E0078D06C /* logcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = logcat; sourceTree = BUILT_PRODUCTS_DIR; };
+		98EACAAE1589F48E0078D06C /* com.fuzzyaliens.logcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.fuzzyaliens.logcat; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EACAB01589F48E0078D06C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		98EACAB31589F48E0078D06C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		98EACAB61589F48E0078D06C /* logcat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "logcat-Prefix.pch"; sourceTree = "<group>"; };
@@ -99,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				98EACA891589F44A0078D06C /* LogViewer.app */,
-				98EACAAE1589F48E0078D06C /* logcat */,
+				98EACAAE1589F48E0078D06C /* com.fuzzyaliens.logcat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,10 +198,12 @@
 				98EACA851589F44A0078D06C /* Sources */,
 				98EACA861589F44A0078D06C /* Frameworks */,
 				98EACA871589F44A0078D06C /* Resources */,
+				98F064B2158F4A33000813CB /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				98F064B1158F4A2F000813CB /* PBXTargetDependency */,
 			);
 			name = LogViewer;
 			productName = LogViewer;
@@ -202,7 +225,7 @@
 			);
 			name = logcat;
 			productName = logcat;
-			productReference = 98EACAAE1589F48E0078D06C /* logcat */;
+			productReference = 98EACAAE1589F48E0078D06C /* com.fuzzyaliens.logcat */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -265,6 +288,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98F064B1158F4A2F000813CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98EACAAD1589F48E0078D06C /* logcat */;
+			targetProxy = 98F064B0158F4A2F000813CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		98EACA961589F44A0078D06C /* InfoPlist.strings */ = {
@@ -378,7 +409,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "logcat/logcat-Prefix.pch";
 				INSTALL_OWNER = root;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"logcat/logcat-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					logcat/com.fuzzyaliens.logcat.plist,
+				);
+				PRODUCT_NAME = "com.fuzzyaliens.$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -390,7 +431,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "logcat/logcat-Prefix.pch";
 				INSTALL_OWNER = root;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"logcat/logcat-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					logcat/com.fuzzyaliens.logcat.plist,
+				);
+				PRODUCT_NAME = "com.fuzzyaliens.$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
