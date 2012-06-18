@@ -16,6 +16,7 @@
 		98EACAB11589F48E0078D06C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EACAB01589F48E0078D06C /* Foundation.framework */; };
 		98EACAB41589F48E0078D06C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAB31589F48E0078D06C /* main.c */; };
 		98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAB71589F48E0078D06C /* logcat.1 */; };
+		98F064A9158F3BC8000813CB /* com.fuzzyaliens.logcat.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,16 @@
 			dstSubfolderSpec = 0;
 			files = (
 				98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		98F064A8158F3BB2000813CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /Library/LaunchDaemons;
+			dstSubfolderSpec = 0;
+			files = (
+				98F064A9158F3BC8000813CB /* com.fuzzyaliens.logcat.plist in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -181,6 +192,7 @@
 				98EACAAA1589F48E0078D06C /* Sources */,
 				98EACAAB1589F48E0078D06C /* Frameworks */,
 				98EACAAC1589F48E0078D06C /* CopyFiles */,
+				98F064A8158F3BB2000813CB /* CopyFiles */,
 			);
 			buildRules = (
 			);
