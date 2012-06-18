@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
         //read and check the authorisation services rights
         //read and check the one-byte command
         char command = 0;
-        size_t bytes_read = read(accepted_socket, &command, 1);
+        size_t bytes_read = recv(accepted_socket, &command, 1, 0);
         if (bytes_read != 1) {
             exit_error("couldn't read the command from the socket", errno);
         }
@@ -68,7 +68,7 @@ int main(int argc, const char * argv[]) {
         }
         size_t file_bytes_read = 0;
         while ((file_bytes_read = read(log_file, log_content, 4096)) > 0) {
-            ssize_t socket_bytes_written = write(accepted_socket, log_content, file_bytes_read);
+            ssize_t socket_bytes_written = send(accepted_socket, log_content, file_bytes_read, 0);
             if (socket_bytes_written < file_bytes_read) {
                 exit_error("couldn't write to socket", errno);
             }
@@ -77,6 +77,7 @@ int main(int argc, const char * argv[]) {
         free(log_content);
         //close the connection
         close(accepted_socket);
+        close(kernel_queue);
     }
     return 0;
 }
