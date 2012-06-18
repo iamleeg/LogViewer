@@ -14,7 +14,7 @@
 		98EACAA11589F44A0078D06C /* FZAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAA01589F44A0078D06C /* FZAAppDelegate.m */; };
 		98EACAA41589F44B0078D06C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98EACAA21589F44B0078D06C /* MainMenu.xib */; };
 		98EACAB11589F48E0078D06C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EACAB01589F48E0078D06C /* Foundation.framework */; };
-		98EACAB41589F48E0078D06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAB31589F48E0078D06C /* main.m */; };
+		98EACAB41589F48E0078D06C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 98EACAB31589F48E0078D06C /* main.c */; };
 		98EACAB81589F48E0078D06C /* logcat.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98EACAB71589F48E0078D06C /* logcat.1 */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		98EACAA31589F44B0078D06C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		98EACAAE1589F48E0078D06C /* logcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = logcat; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EACAB01589F48E0078D06C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		98EACAB31589F48E0078D06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		98EACAB31589F48E0078D06C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		98EACAB61589F48E0078D06C /* logcat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "logcat-Prefix.pch"; sourceTree = "<group>"; };
 		98EACAB71589F48E0078D06C /* logcat.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = logcat.1; sourceTree = "<group>"; };
 		98EACAC01589FC950078D06C /* com.fuzzyaliens.logcat.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.fuzzyaliens.logcat.plist; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		98EACAB21589F48E0078D06C /* logcat */ = {
 			isa = PBXGroup;
 			children = (
-				98EACAB31589F48E0078D06C /* main.m */,
+				98EACAB31589F48E0078D06C /* main.c */,
 				98EACAB71589F48E0078D06C /* logcat.1 */,
 				98EACAB51589F48E0078D06C /* Supporting Files */,
 			);
@@ -246,7 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98EACAB41589F48E0078D06C /* main.m in Sources */,
+				98EACAB41589F48E0078D06C /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +392,7 @@
 				98EACAA91589F44B0078D06C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98EACAB91589F48E0078D06C /* Build configuration list for PBXNativeTarget "logcat" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +401,7 @@
 				98EACABB1589F48E0078D06C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
