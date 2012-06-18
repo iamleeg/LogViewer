@@ -41,6 +41,7 @@
             CFErrorRef error = NULL;
             BOOL blessResult = SMJobBless(kSMDomainSystemLaunchd, jobLabel, authorization, &error);
             AuthorizationFree(authorization, kAuthorizationFlagDefaults);
+            authorization = NULL;
             if (!blessResult) {
                 CFStringRef errorString = CFErrorCopyDescription(error);
                 NSLog(@"couldn't install privileged helper: %@", (__bridge id)errorString);
@@ -70,6 +71,54 @@
 
 - (IBAction)sourceListItemSelected:(id)sender {
     self.logViewer.string = @"";
+    //get authorization to read the log file
+    AuthorizationRef authorization = NULL;
+    OSStatus authResult = AuthorizationCreate(NULL,
+                                              kAuthorizationEmptyEnvironment,
+                                              kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights,
+                                              &authorization);
+    if (authResult != errAuthorizationSuccess) {
+        //something's very wrong
+        return;
+    }
+    char *rightName = "com.fuzzyaliens.LogViewer.read";
+    AuthorizationRights *grantedRights = NULL;
+    AuthorizationItem readLogsRight = { .name = rightName,
+        .valueLength = 0,
+        .value = NULL,
+        .flags = kAuthorizationFlagDefaults };
+    AuthorizationRights rightSet = { .count = 1, .items = &readLogsRight };
+    authResult = AuthorizationCopyRights(authorization,
+                                         &rightSet,
+                                         kAuthorizationEmptyEnvironment,
+                                         kAuthorizationFlagDefaults | kAuthorizationFlagInteractionAllowed | kAuthorizationFlagPreAuthorize | kAuthorizationFlagExtendRights,
+                                         &grantedRights);
+    switch (authResult) {
+        case errAuthorizationSuccess:
+            // allow the action to proceed
+            break;
+        case errAuthorizationDenied:
+        case errAuthorizationCanceled:
+            // the user either isn't allowed, or refused to assert their identity
+            self.logViewer.string = @"You do not have permission to read administrator logs";
+            return;
+            break;
+        default:
+            // something went wrong
+            self.logViewer.string = [NSString stringWithFormat: @"Error %d occurred reading the log file", authResult];
+            break;
+    }
+    //confirm that we really got the rights we wanted
+    int i;
+    for (i = 0; i < grantedRights -> count; i++) {
+        AuthorizationItem thisRight = grantedRights->items[i];
+        if (strncmp(thisRight.name, rightName, strlen(rightName)) == 0 && (thisRight.flags & kAuthorizationFlagCanNotPreAuthorize)) {
+            self.logViewer.string = @"You do not have permission to read administrator logs";
+            AuthorizationFreeItemSet(grantedRights);
+            return;
+        }
+    }
+    AuthorizationFreeItemSet(grantedRights);
     //choose the appropriate command to send
     char command = 0;
     switch ([sender clickedRow]) {
@@ -96,8 +145,20 @@
         NSLog(@"error connecting to socket: %s", strerror(errno));
         goto done;
     }
+    //send the authorization right
+    AuthorizationExternalForm externalForm = {0};
+    authResult = AuthorizationMakeExternalForm(authorization, &externalForm);
+    if (authResult != errAuthorizationSuccess) {
+        NSLog(@"error externalising the authorization reference");
+        goto done;
+    }
+    size_t bytes_written = send(socket_descriptor, &externalForm, kAuthorizationExternalFormLength, 0);
+    if (bytes_written != kAuthorizationExternalFormLength) {
+        NSLog(@"couldn't write to socket: %s", strerror(errno));
+        goto done;
+    }
     //send the command
-    size_t bytes_written = send(socket_descriptor, &command, 1, 0);
+    bytes_written = send(socket_descriptor, &command, 1, 0);
     if (bytes_written != 1) {
         NSLog(@"couldn't write to socket: %s",strerror(errno));
         goto done;
@@ -112,6 +173,9 @@
 done:
     if (socket_descriptor != -1) {
         close(socket_descriptor);
+    }
+    if (authorization) {
+        AuthorizationFree(authorization, kAuthorizationFlagDefaults);
     }
 }
 

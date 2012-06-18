@@ -19,6 +19,7 @@
 #include <string.h>
 #include <sysexits.h>
 #include <unistd.h>
+#include <Security/Security.h>
 
 void exit_error(const char *message, const int error) __attribute__((noreturn));
 int listen_to_launchd_sockets();
@@ -40,9 +41,34 @@ int main(int argc, const char * argv[]) {
     if (accepted_socket == -1) {
         exit_error("couldn't accept the socket connection", errno);
     }
+    //read, recreate and test the authorization right
+    AuthorizationExternalForm external_form = {0};
+    size_t bytes_read = recv(accepted_socket, &external_form, kAuthorizationExternalFormLength, 0);
+    if (bytes_read != kAuthorizationExternalFormLength) {
+        exit_error("couldn't read the authorization rights from the socket", errno);
+    }
+    AuthorizationRef authorization = NULL;
+    OSStatus auth_result = AuthorizationCreateFromExternalForm(&external_form, &authorization);
+    if (auth_result != errAuthorizationSuccess) {
+        exit_error("couldn't internalize the authorization reference", 0);
+    }
+    AuthorizationItem right = { .name = "com.fuzzyaliens.LogViewer.read",
+        .valueLength = 0,
+        .value = NULL,
+        .flags = kAuthorizationFlagDefaults };
+    AuthorizationRights right_set = { .count = 1, .items = &right };
+    auth_result = AuthorizationCopyRights(authorization,
+                                          &right_set,
+                                          kAuthorizationEmptyEnvironment,
+                                          kAuthorizationFlagDefaults | kAuthorizationFlagExtendRights,
+                                          NULL);
+    if (auth_result != errAuthorizationSuccess) {
+        exit_error("not authorized to read log files", 0);
+    }
+    AuthorizationFree(authorization, kAuthorizationFlagDefaults);
     //read and check the one-byte command
     char command = 0;
-    size_t bytes_read = recv(accepted_socket, &command, 1, 0);
+    bytes_read = recv(accepted_socket, &command, 1, 0);
     if (bytes_read != 1) {
         exit_error("couldn't read the command from the socket", errno);
     }
