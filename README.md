@@ -1,0 +1,3 @@
+#LogViewer
+
+Logviewer is a Cocoa app that allows authorised users to view log files that are restricted by filesystem permissions to the super-user or administrators. It demonstrates use of the System Management framework to install a privileged helper (the `logcat` tool), using `launchd` to start the helper on demand and the Authorization framework to coordinate access control. [Designing, writing and deploying a privileged helper on Mac OS X](http://blog.ideveloper.tv/designing-writing-and-deploying-a-privileged-helper-on-mac-os-x/) describes the application in depth.
